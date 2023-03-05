@@ -1,0 +1,15 @@
+
+*.class
+*.exe
+*.out
+*.swp
+.vscode
+.eslintrc
+.jshintrc
+.DS_Store
+
+# pycharm
+*.idea/
+
+# environments
+*env/
