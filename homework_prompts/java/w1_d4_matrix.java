@@ -285,43 +285,88 @@ class Matrix {
 
     public int getN() {return this.n;}
 
+    private int getIndex(int m, int n){
+        if(this.isValid(m,n))
+        return this.storage[m][n];
+    }
+
+    private void setIndex(int m, int n, int value){
+        if(this.isValid(m,n))
+            this.storage[m][n] = value;
+    }
+
+
     public int[][] getStorage() {return this.storage;}
 
 
     public void print() {
-        // YOUR WORK HERE
+        for(int i = 0; i < this.m; i++) {
+            for(int j = 0; j < this.n; j++) {
+                int value = this.storage[i][j];
+                System.out.println(value);
+            }
+        }
     }
 
     public boolean isValid(int i, int j) {
-        // YOUR WORK HERE
+        if(getM() > i || getN() > j || j < 0 || i < 0 || i != j){
         return false;
     }
+        return true;
 
     public void initialize(int[][] arrayOfArrays) {
-        // YOUR WORK HERE
+        this.m = arrayOfArrays.length;
+        this.n  = arrayOfArrays[1].length;
+        }
+        for(int i = 0; i < this.m, i++){
+            for(int j = 0; j < this.n; j++){
+                this.storage[i][j] = arrayOfArrays[i][j];
+            }
+        }
     }
 
     public boolean insert(int i, int j, int val) {
-        // YOUR WORK HERE
-        return false;
+        if(!this.isValid(i, j)) {
+            return false;
+        }
+        this.storage[i][j] = val;
+        return true;
     }
 
     public int retrieve(int i, int j) {
-        // YOUR WORK HERE
-        return Integer.MIN_VALUE;
+        if(!this.isValid(i, j)) {
+            return Integer.MIN_VALUE;
+        }
+        return this.storage[i][j];
     }
 
     public void scale(int factor) {
-        // YOUR WORK HERE
+        for(int i=0; i<this.m ; i++) {
+            for(int j=0; j<this.n; j++) {
+                int old = this.storage[i][j];
+                int scaled = old * factor;
+                this.storage[i][j] = scaled;
+            }
+        }
     }
 
     public void fill(int val) {
-        // YOUR WORK HERE
+        for(int i = 0; i < this.m; i++) {
+            for (int j = 0; j < this.n; j++) {
+                this.storage[i][j] = val;
+            }
+        }
     }
 
     public int[] flatten() {
-        // YOUR WORK HERE
-        return new int[]{};
+
+        int[] flatted =  new int[]{};
+
+        for(int i = 0; i < this.m; i++) {
+            for(int j = 0; j < this.n; j++) {
+                //your code here
+            }
+        }
     }
 
     public Matrix slice(int[] rowRange, int[] colRange) {
